@@ -9,16 +9,23 @@ using namespace std;
 // Name: Angeline Lee
 // Date: 10/06/19
 
+//compute_coins() takes in the coin value, 
 void compute_coins(int coin_value, int& num, int& amount_left) {
+  //while loop checks if the current coin_value > amount_left
+  //e.g. if remaining coin_value < 25 then end loop so that 
+  //compute_coins() can be called for nickels
     while (amount_left >= coin_value) {
         num++;
         amount_left -= coin_value;
     }
 }
 
+//output_coins() assumes that num will never be negative
 void output_coins(int coin_value, int num){
+    //switch cases are based on the coin_value, meaning they can only be 1, 10, 25
     switch(coin_value) {
         case 1: {
+          //if plural
           if(num > 1) {
             cout << num << " Pennies\n";
           } else if(num == 0) {
@@ -28,6 +35,7 @@ void output_coins(int coin_value, int num){
           }
         break;
         case 10: 
+          //if plural
           if(num > 1) {
             cout << num << " Dimes\n";
           } else if(num == 0) {
@@ -36,7 +44,9 @@ void output_coins(int coin_value, int num){
             cout << num << " Dime\n";
           }
         break;
+        //default case for quarters 
         default: 
+          //if plural
           if(num > 1) {
             cout << num << " Quarters\n";
           } else if(num == 0) {
@@ -53,6 +63,7 @@ int main()
   //Variable
   char repeat;
 
+  //starter message
   cout << "Hello I am the coin machine! I will give you the least number of coins for your change.\n";
 
   do {

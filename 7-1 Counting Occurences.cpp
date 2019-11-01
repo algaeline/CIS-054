@@ -11,7 +11,15 @@ using namespace std;
 // Name: Angeline Lee
 // Date: 10/20/19
 
-//Used in sort() to swap values when needed
+/* ===================================================================
+Function: swap()
+Purpose: swap any two given elements
+Parameters: 
+(1) a - passed as a reference integer to change a to b directly
+(2) b - passed as a reference integer to change b to a directly
+Precondition: a and b are two integers that need to be swapped
+Postcondition: a becomes b and b becomes a
+======================================================================*/
 void swap(int& a, int& b)  
 {  
     int temp = a;  
@@ -19,7 +27,15 @@ void swap(int& a, int& b)
     b = temp;  
 }  
   
-//Bubble Sort  
+/* ===================================================================
+Function: compare_n_swap()
+Purpose: bubble sort a given array
+Parameters: 
+(1) a[] - an integer array to be sorted
+(2) array_size - the size of the array so that it can loop through the exact number of elements
+Precondition: given a sorted or unsorted array to be sorted
+Postcondition: array a[] is sorted
+======================================================================*/
 void compare_n_swap(int a[], int array_size)  
 {  
     int i, j;  
@@ -31,6 +47,18 @@ void compare_n_swap(int a[], int array_size)
                 swap(a[j], a[j+1]);  
 }  
 
+/* ===================================================================
+Function: removeAndCountDuplicates()
+Purpose: given an integer list, remove all duplicates and change another
+array that holds the counts of each integer in the first list
+Parameters: 
+(1) intList[] - takes in a list of integers and removes all duplicates
+(2) countList[] - counts all duplicates when they are removed from intList[]
+(3) n - the size of intList
+Precondition: a list of integers exists with or without duplicates to be counted
+Postcondition: intList has no duplicates and countList holds the counts
+of every integer in intList in order
+======================================================================*/
 int removeAndCountDuplicates(int intList[], int countList[], int n) 
 { 
     int tempInt[n];
@@ -60,7 +88,15 @@ int removeAndCountDuplicates(int intList[], int countList[], int n)
     return j;
 } 
 
-//Print 2d array - unused
+/* ===================================================================
+Function: print_2d()
+Purpose: to print out a 2D array
+Parameters: 
+(1) b[][2] - a 2d array that has only two columns
+(2) array_size - an integer number that is the size of the rows in the array
+Precondition: a predefined array exists to be printed
+Postcondition: the 2d array is printed on the console in two rows
+======================================================================*/
 void print_2d(const int b[][2], int array_size) {
   for (int i=0; i < array_size; i++) {
     for (int j=0; j < 2; j++) {
@@ -134,7 +170,10 @@ int main()
 ==============================================================================
 Problems I had working on this assignment (and how I overcame these problems)
 
-1. My biggest problem was creating the removeAndCountDuplicates() function. Unfortunately, I deleted my progress several times, so I have little data to show. I was unable to make it work. I ultimately realized I had an error by prematurely incrementing j, setting off unpredictable changes in my result.
+1. My biggest problem was creating the removeAndCountDuplicates() function. 
+Unfortunately, I deleted my progress several times, so I have little data to show.
+I was unable to make it work. I ultimately realized I had an error by prematurely
+ incrementing j, setting off unpredictable changes in my result.
 
 2. Another problem I had faced was that I was unsure of where to open and close
 the files. I initially put it in the function but later moved it to the main

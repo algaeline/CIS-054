@@ -9,17 +9,28 @@ using namespace std;
 // Date: 10/13/19
 
 void remove_blanks(ifstream& in_stream, ofstream& out_stream){
-    cout << "Begin editing files.\n";
+  //notification message
+  cout << "Begin editing files.\n";
 
-    //read strings from input file stream
-    string str;
+  //character received from the file
+  char c;
 
-    while (in_stream >> str)
-    {
-        out_stream << str << " ";
+  //initial call
+  in_stream.get(c);
+
+  while (!in_stream.eof())
+  {
+    //if the next char is the eof() and a blank, break out of while
+    if(c == ' ' && in_stream.peek(), in_stream.eof())
+     break;
+    //if c is not a space or the next input is not a space
+    if(!isspace(c) || in_stream.peek() != ' ') {
+      out_stream.put(c);
     }
+    in_stream.get(c);
+  }
 
-    cout << "End of editing files. \nCheck translated.dat for result!\n";
+  cout << "End of editing files. \nCheck translated.dat for result!\n";
 }
 
 int main()
@@ -31,30 +42,31 @@ int main()
     //test to ensure code works
     //ifstream inFile ("test.dat");
 
-    string fileName;
-    cin >> fileName;
-    ifstream inFile(fileName.c_str());
+    char inFile[21];
+    ifstream fin;
 
     //setup input file stream
-    if (inFile.fail())
+    cin >> inFile;
+    fin.open(inFile);
+    if (fin.fail())
     {
         cout << "Input file cannot be opened.\n";
-        exit(1);
+        //exit(1);
     }
 
     //setup output file stream
-    ofstream outFile ("translated.dat");
-    if (outFile.fail())
+    ofstream fout ("translated.dat");
+    if (fout.fail())
     {
         cout << "Output file can't be opened.\n";
-        exit(1);
+        //exit(1);
     }
 
-    remove_blanks(inFile, outFile);
+    remove_blanks(fin, fout);
 
     //close streams
-    inFile.close();
-    outFile.close();
+    fin.close();
+    fout.close();
 
     return 0;
 }
