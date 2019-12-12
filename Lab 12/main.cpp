@@ -34,7 +34,7 @@ int main() {
 /* ==========================================================
 Problems I had working on this assignment (and how I overcame these problems)
 
-1. One of my greatest difficulties was compiling th efiles. When using
+1. One of my greatest difficulties was compiling the files. When using
 g++, I came across the issue of "multiple definitions" for my methods. 
 However, running the templist.cpp implementations within templist.h was
 successful, so I assumed my implementations were correct.
